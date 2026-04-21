@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nurganat Maulsharif</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f9f7;
+      --text: #111;
+      --muted: #777;
+      --border: #e0e0dc;
+      --link: #111;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 64px;
+    }
+
+    .header h1 {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
+
+    .header .role {
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 56px;
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* About */
+    .about p {
+      color: #333;
+    }
+
+    /* Projects */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .project {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+    }
+
+    .project:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .project-name {
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .project-name a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .project-name a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* Stack */
+    .stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: #444;
+    }
+
+    /* Contact */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-list a {
+      color: var(--link);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 80px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="header">
+      <h1>Nurganat Maulsharif</h1>
+      <p class="role">Co-founder, <a href="https://emdey.kz" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Emdey Platform</a></p>
+    </header>
+
+    <section class="about">
+      <p class="label">About</p>
+      <p>Building digital products in healthcare and services. Based in Astana, Kazakhstan. Resident of Astana Hub. Focused on minimal interfaces and practical architecture.</p>
+    </section>
+
+    <section>
+      <p class="label">Projects</p>
+      <div class="projects">
+        <div class="project">
+          <span class="project-name"><a href="https://mcs.kz" target="_blank">MCS.kz</a></span>
+          <span class="project-desc">Medical equipment & services</span>
+        </div>
+        <div class="project">
+          <span class="project-name"><a href="https://mcs.kz" target="_blank">MCS.kz</a></span>
+          <span class="project-desc">Medical equipment & services</span>
+        </div>
+        <div class="project">
+          <span class="project-name"><a href="https://dobrovet.kz" target="_blank">Dobrovet.kz</a></span>
+          <span class="project-desc">Digital veterinary platform</span>
+        </div>
+        <div class="project">
+          <span class="project-name"><a href="https://labtech.kz" target="_blank">Labtech.kz</a></span>
+          <span class="project-desc">Laboratory tech solutions</span>
+        </div>
+        <div class="project">
+          <span class="project-name"><a href="https://sunkar-emkhana.kz" target="_blank">Sunkar Emkhana</a></span>
+          <span class="project-desc">Clinic management system</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">Stack</p>
+      <div class="stack-list">
+        <span class="tag">Next.js</span>
+        <span class="tag">React</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Supabase</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Tailwind CSS</span>
+        <span class="tag">Figma</span>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">Contact</p>
+      <div class="contact-list">
+        <a href="mailto:n.maulsharif@emdey.kz">n.maulsharif@emdey.kz</a>
+        <a href="https://t.me/nurganat" target="_blank">Telegram — @nurganat</a>
+        <a href="https://github.com/maulsharif-nurganat" target="_blank">GitHub — maulsharif-nurganat</a>
+        <a href="https://linkedin.com/in/nurganat" target="_blank">LinkedIn</a>
+        <a href="https://instagram.com/m.nurganat" target="_blank">Instagram — @m.nurganat</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 · Astana, Kazakhstan
+    </footer>
+
+  </div>
+</body>
+</html>
