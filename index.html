@@ -5,9 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nurganat Maulsharif | Co-founder</title>
   
+  <!-- Фавикон (Логотип) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23111827'/><text x='50' y='53' font-family='system-ui,sans-serif' font-size='46' font-weight='700' fill='%23fff' text-anchor='middle' dominant-baseline='central' letter-spacing='-2'>NM</text></svg>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Umami Analytics -->
+  <script src="https://cloud.umami.is/script.js" data-website-id="9df8b793-286a-462b-9e43-74a144d3eebd"></script>
 
   <style>
     /* Базовые настройки и переменные (Темная тема по умолчанию) */
@@ -61,7 +67,7 @@
       top: 0; left: 0; width: 100vw; height: 100vh;
       pointer-events: none;
       z-index: 50;
-      opacity: 0.03; /* Настройте прозрачность, если нужно больше/меньше шума */
+      opacity: 0.03;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
@@ -69,10 +75,10 @@
     .container {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 2rem 1.25rem; /* Уменьшили отступы для мобилок */
+      padding: 2rem 1.25rem;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2.5rem; /* Компактнее на мобилках */
+      gap: 2.5rem;
       position: relative;
       z-index: 1;
     }
@@ -101,7 +107,7 @@
     }
 
     .header-title h1 {
-      font-size: 1.75rem; /* Чуть меньше размер заголовка на телефоне */
+      font-size: 1.75rem;
       font-weight: 600;
       letter-spacing: -0.02em;
       margin-bottom: 0.5rem;
@@ -109,12 +115,12 @@
 
     @media (min-width: 768px) {
       .header-title h1 {
-        font-size: 2rem; /* Возвращаем большой размер на ПК */
+        font-size: 2rem;
       }
     }
 
     .header-title p {
-      font-size: 1.05rem; /* Чуть компактнее на мобилках */
+      font-size: 1.05rem;
       color: var(--text-muted);
       font-weight: 400;
     }
@@ -139,7 +145,7 @@
 
     /* Vibecoder Typewriter */
     .about-short p {
-      font-family: 'Fira Code', monospace; /* Моноширинный шрифт для кода */
+      font-family: 'Fira Code', monospace;
       color: var(--text-main);
       font-size: 0.95rem;
       display: inline-flex;
@@ -156,7 +162,7 @@
 
     @keyframes typing {
       from { width: 0 }
-      to { width: 100px } /* Ширина слова Vibecoder */
+      to { width: 100px }
     }
 
     @keyframes blink-caret {
@@ -293,14 +299,14 @@
     .projects-grid {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem; /* Карточки ближе друг к другу на телефоне */
+      gap: 0.75rem;
     }
 
     .project-card {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 1.25rem; /* Компактные отступы внутри карточки на мобилках */
+      padding: 1rem 1.25rem;
       background-color: var(--card-bg);
       border: 1px solid var(--border-color);
       border-radius: 12px;
@@ -313,12 +319,8 @@
     }
 
     @media (min-width: 768px) {
-      .projects-grid {
-        gap: 1rem;
-      }
-      .project-card {
-        padding: 1.25rem 1.5rem;
-      }
+      .projects-grid { gap: 1rem; }
+      .project-card { padding: 1.25rem 1.5rem; }
     }
 
     .project-card:hover {
@@ -413,7 +415,24 @@
       
       <section class="about-detailed">
         <h2 class="section-title">About</h2>
-        <p>Son, husband, father. Based in Almaty, Kazakhstan. Hobbies and interests: <span class="easter-egg" data-emoji="🏃‍♂️">running</span>, <span class="easter-egg" data-emoji="🍿">movies</span>, <span class="easter-egg" data-emoji="☕">coffee</span>.</p>
+        <p>Son, husband, father. Based in Almaty, Kazakhstan. Hobbies and interests: <span class="easter-egg" data-emoji="🏃‍♂️">running</span>, <span class="easter-egg" data-emoji="🍿">movies</span>, <span class="easter-egg" data-emoji="☕">coffee</span>. Supporting <span class="easter-egg" data-emoji="🏀">Los Angeles Lakers</span> and <span class="easter-egg" data-emoji="⚽">Chelsea</span>.</p>
+      </section>
+
+      <section>
+        <h2 class="section-title">Notes</h2>
+        <div class="projects-grid">
+          
+          <a href="post.html?id=tba" class="project-card">
+            <div class="project-info">
+              <h3>TBA</h3>
+              <p>Thoughts are brewing...</p>
+            </div>
+            <div class="project-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </a>
+
+        </div>
       </section>
 
       <section>
@@ -436,6 +455,16 @@
       <section>
         <h2 class="section-title">Portfolio</h2>
         <div class="projects-grid">
+
+          <a href="https://shezhire.maulsharif.kz" target="_blank" class="project-card">
+            <div class="project-info">
+              <h3>Shezhire</h3>
+              <p>Digital family tree</p>
+            </div>
+            <div class="project-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </a>
 
           <a href="#" class="project-card">
             <div class="project-info">
@@ -528,20 +557,16 @@
   </div>
 
   <script>
-    // Скрипт для живых часов (Алматы: UTC+5)
     function updateTime() {
       const timeElement = document.getElementById('local-time');
       if (!timeElement) return;
       
       const now = new Date();
-      // Получаем время в таймзоне Алматы
       const options = { timeZone: 'Asia/Almaty', hour: '2-digit', minute: '2-digit', hour12: false };
       const almatyTime = new Intl.DateTimeFormat('ru-RU', options).format(now);
       
       timeElement.textContent = almatyTime;
     }
-
-    // Запускаем сразу и обновляем каждую секунду
     updateTime();
     setInterval(updateTime, 1000);
   </script>
