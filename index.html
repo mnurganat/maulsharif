@@ -1,217 +1,549 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nurganat Maulsharif</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <title>Nurganat Maulsharif | Co-founder</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
 
+  <style>
+    /* Базовые настройки и переменные (Темная тема по умолчанию) */
     :root {
-      --bg: #f9f9f7;
-      --text: #111;
-      --muted: #777;
-      --border: #e0e0dc;
-      --link: #111;
+      --bg-color: #111111;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-color: #27272a;
+      --card-bg: #18181b;
+      --card-hover: #27272a;
+      --accent-color: #3b82f6;
+      --accent-hover: #60a5fa;
+      --status-dot: #10b981; /* Изумрудный для онлайн-статуса */
+    }
+
+    /* Светлая тема */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-color: #f9f9f7;
+        --text-main: #111827;
+        --text-muted: #6b7280;
+        --border-color: #e5e7eb;
+        --card-bg: #ffffff;
+        --card-hover: #f3f4f6;
+        --accent-color: #2563eb;
+        --accent-hover: #1d4ed8;
+        --status-dot: #10b981;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 15px;
-      line-height: 1.65;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
     }
 
+    /* Эффект шума (Grain) */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.03; /* Настройте прозрачность, если нужно больше/меньше шума */
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Макет */
     .container {
-      max-width: 640px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 80px 24px 120px;
+      padding: 2rem 1.25rem; /* Уменьшили отступы для мобилок */
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem; /* Компактнее на мобилках */
+      position: relative;
+      z-index: 1;
     }
 
-    /* Header */
-    .header {
-      margin-bottom: 64px;
+    @media (min-width: 768px) {
+      .container {
+        padding: 6rem 2rem;
+        grid-template-columns: 320px 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
     }
 
-    .header h1 {
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: -0.2px;
-    }
-
-    .header .role {
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    /* Sections */
-    section {
-      margin-bottom: 56px;
-    }
-
-    .label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    /* About */
-    .about p {
-      color: #333;
-    }
-
-    /* Projects */
-    .projects {
+    /* Левая колонка */
+    .header-section {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      gap: 1.25rem;
     }
 
-    .project {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--border);
-      gap: 16px;
+    @media (min-width: 768px) {
+      .header-section {
+        position: sticky;
+        top: 6rem;
+      }
     }
 
-    .project:first-child {
-      border-top: 1px solid var(--border);
+    .header-title h1 {
+      font-size: 1.75rem; /* Чуть меньше размер заголовка на телефоне */
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
     }
 
-    .project-name {
+    @media (min-width: 768px) {
+      .header-title h1 {
+        font-size: 2rem; /* Возвращаем большой размер на ПК */
+      }
+    }
+
+    .header-title p {
+      font-size: 1.05rem; /* Чуть компактнее на мобилках */
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    @media (min-width: 768px) {
+      .header-title p {
+        font-size: 1.125rem;
+      }
+    }
+
+    .header-title a {
+      color: var(--text-main);
+      text-decoration: none;
       font-weight: 500;
-      font-size: 14px;
+      border-bottom: 1px solid var(--border-color);
+      transition: border-color 0.2s ease;
     }
 
-    .project-name a {
-      color: var(--link);
-      text-decoration: none;
+    .header-title a:hover {
+      border-color: var(--text-main);
     }
 
-    .project-name a:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    /* Vibecoder Typewriter */
+    .about-short p {
+      font-family: 'Fira Code', monospace; /* Моноширинный шрифт для кода */
+      color: var(--text-main);
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
     }
 
-    .project-desc {
-      color: var(--muted);
-      font-size: 13px;
-      text-align: right;
-      flex-shrink: 0;
+    .typing-text {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid var(--text-main);
+      animation: typing 1.5s steps(10, end), blink-caret .75s step-end infinite;
+      display: inline-block;
     }
 
-    /* Stack */
-    .stack-list {
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100px } /* Ширина слова Vibecoder */
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--text-main); }
+    }
+
+    /* Live Status */
+    .live-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      width: fit-content;
+      margin-top: 0.5rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--status-dot);
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .status-dot::after {
+      content: '';
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; bottom: -2px;
+      background-color: var(--status-dot);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      z-index: -1;
+      opacity: 0.5;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.6; }
+      70% { transform: scale(2.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+
+    /* Социальные ссылки */
+    .social-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      gap: 1rem;
+      margin-top: 1rem;
     }
 
-    .tag {
-      font-size: 12px;
-      padding: 4px 10px;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      color: #444;
+    .social-links a {
+      color: var(--text-muted);
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* Contact */
-    .contact-list {
+    .social-links a:hover {
+      color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    .social-links svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Приглашение к контакту */
+    .contact-cta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      margin-bottom: -0.5rem;
+      line-height: 1.5;
+    }
+
+    /* Правая колонка */
+    .content-section {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 4rem;
     }
 
-    .contact-list a {
-      color: var(--link);
+    .section-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Обо мне & Пасхалки */
+    .about-detailed p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
+
+    .easter-egg {
+      position: relative;
+      cursor: crosshair;
+      border-bottom: 1px dashed var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .easter-egg:hover {
+      color: var(--text-main);
+    }
+
+    .easter-egg::after {
+      content: attr(data-emoji);
+      position: absolute;
+      top: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%) scale(0.5);
+      opacity: 0;
+      font-size: 1.5rem;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+    }
+
+    .easter-egg:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+
+    /* Проекты */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem; /* Карточки ближе друг к другу на телефоне */
+    }
+
+    .project-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem; /* Компактные отступы внутри карточки на мобилках */
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
       text-decoration: none;
-      font-size: 14px;
+      color: inherit;
+      transition: all 0.2s ease;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .contact-list a:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    @media (min-width: 768px) {
+      .projects-grid {
+        gap: 1rem;
+      }
+      .project-card {
+        padding: 1.25rem 1.5rem;
+      }
+    }
+
+    .project-card:hover {
+      border-color: var(--text-muted);
+      transform: translateY(-2px);
+      background-color: var(--card-hover);
+    }
+
+    .project-info h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-info p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .project-arrow {
+      color: var(--text-muted);
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .project-card:hover .project-arrow {
+      transform: translateX(4px) translateY(-4px);
+      color: var(--text-main);
     }
 
     /* Footer */
     .footer {
-      margin-top: 80px;
-      color: var(--muted);
-      font-size: 12px;
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* Анимации */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease forwards;
     }
   </style>
 </head>
 <body>
   <div class="container">
+    
+    <!-- Левая колонка -->
+    <header class="header-section fade-in" style="animation-delay: 0.1s;">
+      <div class="header-title">
+        <h1>Nurganat Maulsharif</h1>
+        <p>Co-founder, <a href="https://emdey.kz" target="_blank">Emdey Platform</a></p>
+      </div>
+      
+      <div class="about-short">
+        <p><span class="typing-text">Vibecoder</span></p>
+      </div>
 
-    <header class="header">
-      <h1>Nurganat Maulsharif</h1>
-      <p class="role">Co-founder, <a href="https://emdey.kz" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Emdey Platform</a></p>
+      <div class="live-status">
+        <span class="status-dot"></span>
+        <span>Almaty, <span id="local-time">--:--</span></span>
+      </div>
+
+      <div class="contact-cta">
+        <p>To contact, drink coffee, small talk, big talk, cooperate or discuss — please feel free to use the links below.</p>
+      </div>
+
+      <div class="social-links">
+        <a href="mailto:nurganat@maulsharif.kz" aria-label="Email" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+        <a href="https://t.me/nurganat" target="_blank" aria-label="Telegram" title="Telegram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+        </a>
+        <a href="https://github.com/mnurganat" target="_blank" aria-label="GitHub" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/nurganat/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="https://www.instagram.com/m.nurganat" target="_blank" aria-label="Instagram" title="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </a>
+      </div>
     </header>
 
-    <section class="about">
-      <p class="label">About</p>
-      <p>Building digital products in healthcare and services. Based in Almaty, Kazakhstan. Resident of Astana Hub. Focused on minimal interfaces and practical architecture.</p>
-    </section>
+    <!-- Правая колонка -->
+    <main class="content-section fade-in" style="animation-delay: 0.3s;">
+      
+      <section class="about-detailed">
+        <h2 class="section-title">About</h2>
+        <p>Son, husband, father. Based in Almaty, Kazakhstan. Hobbies and interests: <span class="easter-egg" data-emoji="🏃‍♂️">running</span>, <span class="easter-egg" data-emoji="🍿">movies</span>, <span class="easter-egg" data-emoji="☕">coffee</span>.</p>
+      </section>
 
-    <section>
-      <p class="label">Projects</p>
-      <div class="projects">
-        </div>
-        <div class="project">
-          <span class="project-name"><a href="https://mcs.kz" target="_blank">MCS.kz</a></span>
-          <span class="project-desc">Medical equipment & services</span>
-        </div>
-        <div class="project">
-          <span class="project-name"><a href="https://dobrovet.kz" target="_blank">Dobrovet.kz</a></span>
-          <span class="project-desc">Digital veterinary platform</span>
-        </div>
-        <div class="project">
-          <span class="project-name"><a href="https://labtech.kz" target="_blank">Labtech.kz</a></span>
-          <span class="project-desc">Laboratory tech solutions</span>
-        </div>
-        <div class="project">
-          <span class="project-name"><a href="https://sunkar-emkhana.kz" target="_blank">Sunkar Emkhana</a></span>
-          <span class="project-desc">Clinic management system</span>
-        </div>
-      </div>
-    </section>
+      <section>
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+          
+          <a href="https://emdey.kz/app/home" target="_blank" class="project-card">
+            <div class="project-info">
+              <h3>Emdey</h3>
+              <p>Digital healthcare platform</p>
+            </div>
+            <div class="project-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </a>
 
-    <section>
-      <p class="label">Stack</p>
-      <div class="stack-list">
-        <span class="tag">Next.js</span>
-        <span class="tag">React</span>
-        <span class="tag">TypeScript</span>
-        <span class="tag">Supabase</span>
-        <span class="tag">Firebase</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">Tailwind CSS</span>
-        <span class="tag">Figma</span>
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <section>
-      <p class="label">Contact</p>
-      <div class="contact-list">
-        <a href="mailto:n.maulsharif@emdey.kz">n.maulsharif@emdey.kz</a>
-        <a href="https://t.me/nurganat" target="_blank">Telegram — @nurganat</a>
-        <a href="https://github.com/maulsharif-nurganat" target="_blank">GitHub — maulsharif-nurganat</a>
-        <a href="https://linkedin.com/in/nurganat" target="_blank">LinkedIn</a>
-        <a href="https://instagram.com/m.nurganat" target="_blank">Instagram — @m.nurganat</a>
-      </div>
-    </section>
+      <section>
+        <h2 class="section-title">Portfolio</h2>
+        <div class="projects-grid">
 
-    <footer class="footer">
-      © 2026 · Almaty, Kazakhstan
-    </footer>
+          <a href="#" class="project-card">
+            <div class="project-info">
+              <h3>Portfolio</h3>
+              <p>Personal website</p>
+            </div>
+            <div class="project-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </a>
 
+          <a href="https://mcs.kz" target="_blank" class="project-card">
+            <div class="project-info">
+              <h3>MCS.kz</h3>
+              <p>Medical equipment & services</p>
+            </div>
+            <div class="project-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </a>
+
+          <a href="https://labtech.kz" target="_blank" class="project-card">
+            <div class="project-info">
+              <h3>Labtech.kz</h3>
+              <p>Laboratory tech solutions</p>
+            </div>
+            <div class="project-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </a>
+
+          <a href="https://suncarhealthcare.kz/" target="_blank" class="project-card">
+            <div class="project-info">
+              <h3>Suncar Healthcare</h3>
+              <p>Healthcare services</p>
+            </div>
+            <div class="project-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </a>
+
+          <a href="https://sunkar-emkhana.kz" target="_blank" class="project-card">
+            <div class="project-info">
+              <h3>Sunkar Emkhana</h3>
+              <p>Clinic management system</p>
+            </div>
+            <div class="project-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </a>
+
+          <a href="https://dobrovet.kz" target="_blank" class="project-card">
+            <div class="project-info">
+              <h3>Dobrovet.kz</h3>
+              <p>Digital veterinary platform</p>
+            </div>
+            <div class="project-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </a>
+
+          <a href="https://diabetiki.asia" target="_blank" class="project-card">
+            <div class="project-info">
+              <h3>Diabetiki.asia</h3>
+              <p>Diabetes community & info</p>
+            </div>
+            <div class="project-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </a>
+
+          <a href="https://kerimkulov.kz" target="_blank" class="project-card">
+            <div class="project-info">
+              <h3>Kerimkulov.kz</h3>
+              <p>Personal portfolio</p>
+            </div>
+            <div class="project-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>© 2026 · Almaty, Kazakhstan</p>
+      </footer>
+
+    </main>
   </div>
+
+  <script>
+    // Скрипт для живых часов (Алматы: UTC+5)
+    function updateTime() {
+      const timeElement = document.getElementById('local-time');
+      if (!timeElement) return;
+      
+      const now = new Date();
+      // Получаем время в таймзоне Алматы
+      const options = { timeZone: 'Asia/Almaty', hour: '2-digit', minute: '2-digit', hour12: false };
+      const almatyTime = new Intl.DateTimeFormat('ru-RU', options).format(now);
+      
+      timeElement.textContent = almatyTime;
+    }
+
+    // Запускаем сразу и обновляем каждую секунду
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
 </body>
 </html>
